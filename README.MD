@@ -35,8 +35,9 @@ Dado que aún no se han contado las monedas, y no sabemos la cantidad exacta de 
 
 Sea:
 
-$\hat{x}$ = cantidad i-ésima iterado para la moneda 1
-$\hat{y}$ = cantidad i-ésima iterado para la moneda 2
+- $\hat{x}$ = cantidad i-ésima iterado para la moneda 1
+
+- $\hat{y}$ = cantidad i-ésima iterado para la moneda 2
 
 
 $$x \sim \hat{x}$$
@@ -45,7 +46,6 @@ $$y \sim \hat{y}$$
 
 $$ x \cdot \hat{p_{1}} + y \cdot \hat{p_{2}} = \hat{P}$$
 
-$$|P - \hat{P}| \sim 0$$
 
 El iterador debe tener un límite máximo para no caer en loops infinitos, considerando un numero **maxlim** como el entero máximo entre el peso total $P$ y los pesos de las dos monedas escogidas.
 
@@ -53,7 +53,7 @@ $$maxlim = max{ \frac{P}{p1}, \frac{P}{p2}}$$
 
 La función que se debe minimizar es la diferencia de pesos, que en la práctica es el error absoluto entre el peso estimado por la simulación $\hat{P}$ y el peso total $P$ de la entrada. 
 
-$$ x \cdot \hat{p_{1}} + y \cdot \hat{p_{2}} - \hat{P} = 0$$
+$$|P - \hat{P}| \sim 0$$
 
 Cuando se encuentra una posible solución, llámese *vector tentativo*, se debe evaluar la relación de la primera moneda con lo encontrado en la solución iterada. Se agregará la solución, considerando una tolerancia <0.01 si:
 
