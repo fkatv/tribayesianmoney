@@ -49,23 +49,30 @@ $$ x \cdot \hat{p_{1}} + y \cdot \hat{p_{2}} = \hat{P}$$
 
 El iterador debe tener un límite máximo para no caer en loops infinitos, considerando un numero **maxlim** como el entero máximo entre el peso total $P$ y los pesos de las dos monedas escogidas.
 
-$$maxlim = max{ \frac{P}{p1}, \frac{P}{p2}}$$
+$$maxlim = max \{ \frac{P}{p1}, \frac{P}{p2} \}$$
 
 La función que se debe minimizar es la diferencia de pesos, que en la práctica es el error absoluto entre el peso estimado por la simulación $\hat{P}$ y el peso total $P$ de la entrada. 
 
 $$|P - \hat{P}| \sim 0$$
 
-Cuando se encuentra una posible solución, llámese *vector tentativo*, se agregará dicha solución, considerando una tolerancia < 0.01 si:
+Cuando se encuentra una posible solución, llámese *vector tentativo*, se agregará dicha solución, considerando una tolerancia $\tau < 0.01$ si:
 
 Se prueba que para una probabilidad $\rho$:
 - La norma de la cantidad $\hat{x}$ 
 está dentro del intervalo de confianza entre una tolerancia $\tau$ 
 y una probabilidad bayesiana $\rho$.
+
+$$\tau < \frac{\hat{x}}{\hat{x}+\hat{y}} < \rho$$
+
 - La norma de la cantidad $\hat{y}$ 
 está dentro del intervalo de confianza entre una tolerancia $\tau$ y una probabilidad bayesiana $1 - \rho$
-- El vector tentativo no se encuentra en el vector de soluciones.
+
+$$\tau < \frac{\hat{y}}{\hat{x}+\hat{y}} < 1 - \rho$$
+
+- El vector tentativo **no se encuentra** en el vector de soluciones.
 
 
-Se itera el valor de la probabilidad desde $0 < \tau <= 100$ con un paso de 5 unidades.
+Se itera el valor de la probabilidad desde $0 \leq \tau \leq 100$ con un paso de 5 unidades.
 
+Si hay solo un vector en el vector de soluciones, se retorna el valor, en otro caso, se busca la probabilidad $\rho$ mas cercana a la probabilidad que el usuario ingresa de forma tentativa o adivinatoria.
 
