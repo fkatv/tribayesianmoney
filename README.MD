@@ -55,16 +55,14 @@ La función que se debe minimizar es la diferencia de pesos, que en la práctica
 
 $$|P - \hat{P}| \sim 0$$
 
-Cuando se encuentra una posible solución, llámese *vector tentativo*, se debe evaluar la relación de la primera moneda con lo encontrado en la solución iterada. Se agregará la solución, considerando una tolerancia <0.01 si:
+Cuando se encuentra una posible solución, llámese *vector tentativo*, se agregará dicha solución, considerando una tolerancia < 0.01 si:
 
 > Se prueba que para una probabilidad $\rho$:
-> - La norma de la cantidad $\hat{x}$ está dentro del intervalo de confianza entre una tolerancia $\tau$ y una probabilidad bayesiana $\rho$
+> - La norma de la cantidad $\hat{x}$ está dentro del intervalo de confianza entre una tolerancia $\tau$ y una probabilidad bayesiana $\rho$.
 > - La norma de la cantidad $\hat{y}$ está dentro del intervalo de confianza entre una tolerancia $\tau$ y una probabilidad bayesiana $1 - \rho$
 > - El vector tentativo no se encuentra en el vector de soluciones.
 
 
-
-Restricciones:
-
+Se itera el valor de la probabilidad desde $0 < \tau <= 100$ con un paso de 5 unidades.
 
 
