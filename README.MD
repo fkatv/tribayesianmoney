@@ -25,18 +25,44 @@ En cada país, se tiene un conjunto M de monedas metálicas. Pongamos el caso de
 
 Analíticamente, para un tipo de moneda cuyo peso es $p_{1}$ con una cantidad $x$ de monedas, tenemos que la relación de la cantidad con el peso total $P$ esta dado por:
 
-$$ x \cdot p_{2} = P$$
+$$ x \cdot p_{1} = P$$
 
 Para el caso de dos tipos de monedas, cuyo peso para la primera es $p_{1}$ con una cantidad $x$ de monedas, $p_{2}$ con una cantidad $y$ del segundo tipo de moneda,   tenemos que la relación de éstas con el peso total $P$ esta dado por: 
 
 $$ x \cdot p_{1} + y \cdot p_{2} = P$$
 
-Dado que aún no se han contado las monedas, y no sabemos la cantidad exacta de ellas, para efecto de la simulación que minimice el rango de error en los cálculos, tenemos un aproximado:
+Dado que aún no se han contado las monedas, y no sabemos la cantidad exacta de ellas, para efecto de la simulación que minimice el rango de error en los cálculos, formalmente se define: 
+
+Sea:
+
+$\hat{x} = cantidad i-ésima iterado para la moneda 1$
+$\hat{y} = cantidad i-ésima iterado para la moneda 2$
+
 
 $$x \sim \hat{x}$$
 
 $$y \sim \hat{y}$$
 
-$$ x \cdot \hat{p_{1}} + y \cdot \hat{p_{2}} = P$$
+$$ x \cdot \hat{p_{1}} + y \cdot \hat{p_{2}} = \hat{P}$$
+
+El iterador debe tener un límite máximo para no caer en loops infinitos, considerando un numero **maxlim** como el entero máximo entre el peso total $P$ y los pesos de las dos monedas escogidas.
+
+$$maxlim = max{ \frac{P}{p1}, \frac{P}{p2}}$$
+
+La función que se debe minimizar es la diferencia de pesos, que en la práctica es el error absoluto entre el peso estimado por la simulación $\hat{P}$ y el peso total $P$ de la entrada. 
+
+$$ x \cdot \hat{p_{1}} + y \cdot \hat{p_{2}} - \hat{P} = 0$$
+
+Cuando se encuentra una posible solución, llámese *vector tentativo*, se debe evaluar la relación de la primera moneda con lo encontrado en la solución iterada. Se agregará la solución, considerando una tolerancia <0.01 si:
+
+> Se prueba que para una probabilidad $\rho$:
+> - La norma de la cantidad $\hat{x}$ está dentro del intervalo de confianza entre una tolerancia $\tau$ y una probabilidad bayesiana $\rho$
+> - La norma de la cantidad $\hat{y}$ está dentro del intervalo de confianza entre una tolerancia $\tau$ y una probabilidad bayesiana $1 - \rho$
+> - El vector tentativo no se encuentra en el vector de soluciones.
+
+
+
+Restricciones:
+
 
 

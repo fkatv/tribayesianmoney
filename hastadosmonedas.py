@@ -3,7 +3,7 @@ import numpy as np
 def calcular(mx,P):
 	tol = 0.001
 	p1,v1,p2,v2 = mx
-	maxlim = int(np.max([P/p1, P/v2]).item())
+	maxlim = int(np.max([P/p1, P/p2]).item())
 	pesos = [p1,p2]
 	V = []
 	for p in range(5,100,5):
