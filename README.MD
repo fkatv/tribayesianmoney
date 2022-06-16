@@ -2,7 +2,7 @@
 
 ### Descripción
 
-Este es un proyecto simple de cálculo algoritmico que simula una aproximación de un contador de monedas metálicas y cálculo de su monto  bajo un montón discreto y limitado de monedas, empleando como entrada su peso en gramos y los posibles tipos de monedas. Sin embargo, como no hay certeza de las proporciones de las cantidades exactas de monedas, se procede a estimar con parámetros bayesianos aplicadas a las estimaciones porcentuales de las cantidades de monedas con respecto al conteo total.
+Este es un proyecto simple de cálculo algoritmico que simula una aproximación de un contador de monedas metálicas y cálculo de su monto  bajo un montón discreto y limitado de monedas. Se emplea como entrada el peso total en gramos del montón y los posibles tipos de monedas. Sin embargo, como no hay certeza de las proporciones de las cantidades exactas de monedas, esto puede provocar más de una solución. Para ello, se procede a estimar con parámetros bayesianos aplicadas a las estimaciones porcentuales de las cantidades de monedas con respecto al conteo total.
 
 
 ### Ejemplo
@@ -11,7 +11,7 @@ Este es un proyecto simple de cálculo algoritmico que simula una aproximación 
 
 - Entrada 1: **39** [gramos] 
 - Entrada 2: [$10, $100] (A posteriori se sabe que 21gr son de $10 y 18gr de $100 antiguas)
-- Entrada 3: 0.75 (El 75% de las cantidades de monedas son de la primera moneda ($10) )
+- Entrada 3 opcional: 0.75 (El 75% de las cantidades de monedas son de la primera moneda ($10) )
 
 **RESULTADO:** [6, 2] (Hay 6 monedas de $10 y 2 monedas de $100_old, 6/8 % de $10 = 75%)
 
@@ -34,6 +34,9 @@ $$ x \cdot p_{1} + y \cdot p_{2} = P$$
 Dado que aún no se han contado las monedas, y no sabemos la cantidad exacta de ellas, para efecto de la simulación que minimice el rango de error en los cálculos, tenemos un aproximado:
 
 $$x \sim \hat{x}$$
+
 $$y \sim \hat{y}$$
+
 $$ x \cdot \hat{p_{1}} + y \cdot \hat{p_{2}} = P$$
+
 
