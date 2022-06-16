@@ -35,8 +35,8 @@ Dado que aún no se han contado las monedas, y no sabemos la cantidad exacta de 
 
 Sea:
 
-$\hat{x} = cantidad i-ésima iterado para la moneda 1$
-$\hat{y} = cantidad i-ésima iterado para la moneda 2$
+$\hat{x}$ = cantidad i-ésima iterado para la moneda 1
+$\hat{y}$ = cantidad i-ésima iterado para la moneda 2
 
 
 $$x \sim \hat{x}$$
@@ -44,6 +44,8 @@ $$x \sim \hat{x}$$
 $$y \sim \hat{y}$$
 
 $$ x \cdot \hat{p_{1}} + y \cdot \hat{p_{2}} = \hat{P}$$
+
+$$|P - \hat{P}| \sim 0$$
 
 El iterador debe tener un límite máximo para no caer en loops infinitos, considerando un numero **maxlim** como el entero máximo entre el peso total $P$ y los pesos de las dos monedas escogidas.
 
