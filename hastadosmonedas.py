@@ -1,6 +1,26 @@
 import numpy as np
+import estadistics as st
 
-def calcular(mx,P):
+nombres = ['$10','$50','$100_old','$100_mapu', '$500']
+pesos = [3.5, 7, 9, 7.58, 6.5]
+valor = [10, 50, 100, 100, 500]
+
+def tbMoney(v, peso):
+	i1 = nombres.index(v[0])
+	if len(v) == 1:
+		return calcular1([pesos[i1], valor[i1]], peso)
+	elif len(v) == 2:
+		i2 = nombres.index(v[1])
+		return calcular2([pesos[i1], valor[i1], pesos[i2], valor[i2]], peso)
+
+
+def calcular1(mx, P):
+	print('Entradas:',mx, P)
+	p1,v1 = mx
+	print(P/p1)
+
+def calcular2(mx,P):
+	print('Entradas:',mx, P)
 	tol = 0.001
 	p1,v1,p2,v2 = mx
 	maxlim = int(np.max([P/p1, P/p2]).item())
@@ -18,29 +38,10 @@ def calcular(mx,P):
 					V = agregarSolucion([b,a], V, tol, pr,v2)
 	print(V)
 
-def probar (v, tol, pr, m1):
-	apr = 1-pr
-	xnorm, ynorm = normalizar(v)
-	if (enIntervaloConfianza(tol, pr, xnorm)):
-		if (enIntervaloConfianza(tol, apr, ynorm)):
-			print(v, pr*100,"% de cantidad de monedas de", m1)
-			return True
-	else:
-		return False
-
-def normalizar(v):
-	norma = np.sum(v)
-	return [k/norma for k in v]
-
 def agregarSolucion(vector, vectorSoluciones, tol, pr,m1):
-	if(probar(vector, tol, pr, m1) and vector not in vectorSoluciones):
+	if(st.probar(vector, tol, pr, m1) and vector not in vectorSoluciones):
 		vectorSoluciones.append(vector)
 	return vectorSoluciones
 
-def enIntervaloConfianza(alfa, media, valor_test ):
-	if (media - alfa < valor_test < media + alfa):
-		return True
-	else:
-		return False
-	
-calcular([3.5,10,9,100], 39)
+
+tbMoney(["$100_old"], 27)
