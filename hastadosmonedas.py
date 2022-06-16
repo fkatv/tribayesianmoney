@@ -43,4 +43,4 @@ def enIntervaloConfianza(alfa, media, valor_test ):
 	else:
 		return False
 	
-calcular([3.5,10,9,500], 39)
+calcular([3.5,10,9,100], 39)

@@ -33,7 +33,7 @@ $$ x \cdot p_{1} + y \cdot p_{2} = P$$
 
 Dado que aún no se han contado las monedas, y no sabemos la cantidad exacta de ellas, para efecto de la simulación que minimice el rango de error en los cálculos, tenemos un aproximado:
 
-$$x \longarrowright \hat{x}$$
-$$y \longarrowright \hat{y}$$
+$$x \sim \hat{x}$$
+$$y \sim \hat{y}$$
 $$ x \cdot \hat{p_{1}} + y \cdot \hat{p_{2}} = P$$
 
