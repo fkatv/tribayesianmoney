@@ -23,11 +23,17 @@ En cada país, se tiene un conjunto M de monedas metálicas. Pongamos el caso de
 > - Valor de monedas: 10, 50, 100, 100, 500
 > - Peso de monedas: 3.5, 7, 9, 7.58, 6.5
 
-Analíticamente, para un tipo de moneda cuyo peso es $p_{1}$ con una cantidad $x$ de monedas, tenemos que la relación de la cantidad con el peso $P$ esta dado por:
+Analíticamente, para un tipo de moneda cuyo peso es $p_{1}$ con una cantidad $x$ de monedas, tenemos que la relación de la cantidad con el peso total $P$ esta dado por:
 
 $$ x \cdot p_{2} = P$$
 
-Para el caso de dos tipos de monedas, cuyo peso para la primera es $p_{1}$ con una cantidad $x$ de monedas, $p_{2}$ con una cantidad $y$ del segundo tipo de moneda,   tenemos que la relación de la cantidad con el peso $P$ esta dado por: 
+Para el caso de dos tipos de monedas, cuyo peso para la primera es $p_{1}$ con una cantidad $x$ de monedas, $p_{2}$ con una cantidad $y$ del segundo tipo de moneda,   tenemos que la relación de éstas con el peso total $P$ esta dado por: 
 
 $$ x \cdot p_{1} + y \cdot p_{2} = P$$
+
+Dado que aún no se han contado las monedas, y no sabemos la cantidad exacta de ellas, para efecto de la simulación que minimice el rango de error en los cálculos, tenemos un aproximado:
+
+$$x \longarrowright \hat{x}$$
+$$y \longarrowright \hat{y}$$
+$$ x \cdot \hat{p_{1}} + y \cdot \hat{p_{2}} = P$$
 
