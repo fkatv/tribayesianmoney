@@ -44,12 +44,12 @@ $$x \sim \hat{x}$$
 
 $$y \sim \hat{y}$$
 
-$$ x \cdot \hat{p_{1}} + y \cdot \hat{p_{2}} = \hat{P}$$
+$$ \hat{x} \cdot p_{1} + \hat{y} \cdot p_{2} = \hat{P}$$
 
 
 El iterador debe tener un límite máximo para no caer en loops infinitos, considerando un numero **maxlim** como el entero máximo entre el peso total $P$ y los pesos de las dos monedas escogidas.
 
-$$maxlim = max \{ \frac{P}{p1}, \frac{P}{p2} \}$$
+$$maxlim = max \{ \( \frac{P}{p1}, \frac{P}{p2} \) \}$$
 
 La función que se debe minimizar es la diferencia de pesos, que en la práctica es el error absoluto entre el peso estimado por la simulación $\hat{P}$ y el peso total $P$ de la entrada. 
 
