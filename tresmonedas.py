@@ -13,7 +13,7 @@ def tbMoney(v, p):
 
 def calcular3(mx,P):
 	print('Entradas:',mx, P)
-	tol = 0.001
+	tol = 0.00001
 	p1,v1,p2,v2,p3,v3 = mx
 	maxlim = int(np.max([P/p1, P/p2, P/p3]).item())
 	pesos = [p1,p2,p3]
@@ -37,11 +37,10 @@ def iterar(a,b,c,pr1,pr2,pr3,pesos,tol,P,V,v1,v2):
 	if (c1==0 or c2==0 and [a,b,c] not in V and [b,a,c] not in V):
 		for j in range(0,100,5):
 			pr3= j/100
-			if (pr1 + pr2 + pr3 <= 1):
-				if (c1 == 0 and  c1==c2==0):
-					V = agregarSolucion([a,b,c],V, tol, pr1, pr2, pr3 ,v1)
-				elif (c2 == 0):
-					V = agregarSolucion([b,a,c], V, tol, pr1, pr2, pr3 ,v2)
+			if (c1 == 0 and  c1==c2==0):
+				V = agregarSolucion([a,b,c],V, tol, pr1, pr2, pr3 ,v1)
+			elif (c2 == 0):
+				V = agregarSolucion([b,a,c], V, tol, pr1, pr2, pr3 ,v1)
 
 def agregarSolucion(vector, vectorSoluciones, tol, pr1,pr2,pr3,m1):
 	if(st.probar3(vector, tol, pr1,pr2,pr3, m1) and vector not in vectorSoluciones):
@@ -49,4 +48,4 @@ def agregarSolucion(vector, vectorSoluciones, tol, pr1,pr2,pr3,m1):
 		print(vector, pr1,pr2,pr3)
 	return vectorSoluciones
 
-tbMoney(["$10","$100_old","$500"], 37)
+tbMoney(["$10","$100_old","$100_mapu"], 38.08)
