@@ -35,12 +35,10 @@ def iterar(a,b,c,pr1,pr2,pr3,pesos,tol,P,V,v1,v2):
 	c1=(a*pesos[0]+b*pesos[1]+c*pesos[2]- P)
 	c2=(b*pesos[0]+a*pesos[1]+c*pesos[2]- P)
 	if (c1==0 or c2==0 and [a,b,c] not in V and [b,a,c] not in V):
-		for j in range(0,100,5):
-			pr3= j/100
-			if (c1 == 0 and  c1==c2==0):
-				V = agregarSolucion([a,b,c],V, tol, pr1, pr2, pr3 ,v1)
-			elif (c2 == 0):
-				V = agregarSolucion([b,a,c], V, tol, pr1, pr2, pr3 ,v1)
+		if (c1 == 0 and  c1==c2==0):
+			V = agregarSolucion([a,b,c],V, tol, pr1, pr2, pr3 ,v1)
+		elif (c2 == 0):
+			V = agregarSolucion([b,a,c],V, tol, pr1, pr2, pr3 ,v1)
 
 def agregarSolucion(vector, vectorSoluciones, tol, pr1,pr2,pr3,m1):
 	if(st.probar3(vector, tol, pr1,pr2,pr3, m1) and vector not in vectorSoluciones):
@@ -48,4 +46,4 @@ def agregarSolucion(vector, vectorSoluciones, tol, pr1,pr2,pr3,m1):
 		print(vector, pr1,pr2,pr3)
 	return vectorSoluciones
 
-tbMoney(["$10","$100_old","$100_mapu"], 38.08)
+tbMoney(["$10","$100_old","$100_mapu"], 32.58)
