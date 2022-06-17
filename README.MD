@@ -62,12 +62,12 @@ Se prueba que para una probabilidad $\rho$:
 está dentro del intervalo de confianza entre una tolerancia $\tau$ 
 y una probabilidad bayesiana $\rho$.
 
-$$\tau < \frac{\hat{x}}{\hat{x}+\hat{y}} < \rho$$
+$$\tau - \rho < \frac{\hat{x}}{\hat{x}+\hat{y}} < \rho + \tau$$
 
 - La norma de la cantidad $\hat{y}$ 
-está dentro del intervalo de confianza entre una tolerancia $\tau$ y una probabilidad bayesiana $1 - \rho$
+está dentro del intervalo de confianza entre una tolerancia $\tau$ y una probabilidad bayesiana $\gamma = 1 - \rho$
 
-$$\tau < \frac{\hat{y}}{\hat{x}+\hat{y}} < 1 - \rho$$
+$$\gamma - \tau < \frac{\hat{y}}{\hat{x}+\hat{y}} < \gamma + \tau$$
 
 - El vector tentativo **no se encuentra** en el vector de soluciones.
 
@@ -75,4 +75,8 @@ $$\tau < \frac{\hat{y}}{\hat{x}+\hat{y}} < 1 - \rho$$
 Se itera el valor de la probabilidad desde $0 \leq \tau \leq 100$ con un paso de 5 unidades.
 
 Si hay solo un vector en el vector de soluciones, se retorna el valor, en otro caso, se busca la probabilidad $\rho$ mas cercana a la probabilidad que el usuario ingresa de forma tentativa o adivinatoria.
+
+Para 3 monedas distintas en un montón, se variarán las probabilidades $\rho$ de la primera y segunda moneda ($\gamma$) y para la tercera ($\delta$)será la diferencia de la suma de las dos primeras, igual a uno.
+
+$$\delta = 1 - (\rho + \gamma)$$
 
